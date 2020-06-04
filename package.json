@@ -1,0 +1,22 @@
+{
+  "name": "js-tdd-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zbyszkop/js-tdd-workshop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zbyszkop/js-tdd-workshop/issues"
+  },
+  "homepage": "https://github.com/zbyszkop/js-tdd-workshop#readme",
+  "dependencies": {
+    "mocha": "^7.2.0"
+  }
+}
