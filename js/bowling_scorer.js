@@ -14,8 +14,10 @@ class BowlingScorer {
         this.rollCount++;
         if ( this.previousFrameWasSpare ) {
 	        this.currentScore += pins + 10;
-	        this.previousFrameWasSpare = false;
+            this.previousFrameWasSpare = false;
+            return;
         }
+        
         if ( this.isEndOfFrame() ) {
             if ( pins + this.previousRoll < 10 ) {
 	            this.currentScore += this.previousRoll + pins;

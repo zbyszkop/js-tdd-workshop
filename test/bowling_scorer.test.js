@@ -23,5 +23,7 @@ describe('Bowling scorer', () => {
         assert.equal(bowlingScorer.score(), 0);
         bowlingScorer.roll(3);
         assert.equal(bowlingScorer.score(), 13);
+        bowlingScorer.roll(3);
+        assert.equal(bowlingScorer.score(), 19);
     })
 })
