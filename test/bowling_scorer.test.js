@@ -55,4 +55,12 @@ describe('Bowling scorer', () => {
 
         assert.equal(bowlingScorer.score(), 31);
     })
+    it('strike frame counts as 10 + next two roll pins', () => {
+        bowlingScorer.roll(10);
+        assert.equal(bowlingScorer.score(), 0);
+        bowlingScorer.roll(4);
+        assert.equal(bowlingScorer.score(), 0);
+        bowlingScorer.roll(5);
+        assert.equal(bowlingScorer.score(), 28);
+    })
 })
