@@ -15,5 +15,13 @@ describe('Bowling scorer', () => {
         assert.equal(bowlingScorer.score(), 5);
         bowlingScorer.roll(2); //second frame
         assert.equal(bowlingScorer.score(), 11);
+    });
+    it('spare frame counts as 10 + next roll pins', () => {
+	    let bowlingScorer = new BowlingScorer();
+        bowlingScorer.roll(3);
+        bowlingScorer.roll(7); ///first frame ended
+        assert.equal(bowlingScorer.score(), 0);
+        bowlingScorer.roll(3);
+        assert.equal(bowlingScorer.score(), 13);
     })
 })
