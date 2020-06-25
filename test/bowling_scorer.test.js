@@ -25,5 +25,18 @@ describe('Bowling scorer', () => {
         assert.equal(bowlingScorer.score(), 13);
         bowlingScorer.roll(3);
         assert.equal(bowlingScorer.score(), 19);
-    })
+    });
+    it('should tally up two spares in a row', () => {
+	    let bowlingScorer = new BowlingScorer();
+        bowlingScorer.roll(3);
+        bowlingScorer.roll(7); ///first frame ended
+        assert.equal(bowlingScorer.score(), 0);
+        bowlingScorer.roll(3);
+        assert.equal(bowlingScorer.score(), 13);
+        bowlingScorer.roll(7);
+        assert.equal(bowlingScorer.score(), 13);
+        bowlingScorer.roll(7);
+        assert.equal(bowlingScorer.score(), 30);
+
+    });
 })
