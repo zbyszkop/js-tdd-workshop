@@ -15,7 +15,6 @@ class BowlingScorer {
         if ( this.previousFrameWasSpare ) {
 	        this.currentScore += pins + 10;
             this.previousFrameWasSpare = false;
-            return;
         }
         
         if ( this.isEndOfFrame() ) {
