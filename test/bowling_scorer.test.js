@@ -42,20 +42,35 @@ describe('Bowling scorer', () => {
 			assert.equal(bowlingScorer.score(), 21)
     });
     
-    // it('should get extra roll after spare in last roll', () => {
-    //     bowlingScorer = new BowlingScorer();
-    //     score = 0;
-    //     for (i = 0; i < 2; i++) {
-    //         bowlingScorer.roll(3);
-    //         if (i > 0 ){
-    //             score+=13;
-    //         }
-
-    //         assert.equal(bowlingScorer.score(), score)
-    //         bowlingScorer.roll(7);
+    it('should get extra roll after spare in last roll', () => {
+        bowlingScorer = new BowlingScorer();
+        score = 0;
+        for (i = 0; i < 10; i++) {
+            bowlingScorer.roll(3);
+            if (i > 0 ){
+                score+=13;
+            }
             
 
-    //         assert.equal(bowlingScorer.score(), score)
-    //     }
-	// 	});
+            assert.equal(bowlingScorer.score(), score)
+            bowlingScorer.roll(7);
+            
+
+            assert.equal(bowlingScorer.score(), score)
+        }
+
+        bowlingScorer.roll(5)
+        assert.equal(bowlingScorer.score(), score+15)
+        });
+        
+    it ('should add next two rolls in case of a strike', () => {
+        bowlingScorer = new BowlingScorer();
+        score = 0;
+
+        bowlingScorer.roll(10)
+        assert.equal(bowlingScorer.score(), 0)
+
+        bowlingScorer.roll(3)
+        assert.equal(bowlingScorer.score(), 0)
+    })
 })
