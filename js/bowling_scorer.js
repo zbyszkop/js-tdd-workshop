@@ -1,11 +1,11 @@
 class BowlingScorer {
-    roll(pins) {
+	score = () => 0
 
-    }
-
-    score() {
-        return 0;
-    }
+	roll(pins) {
+		console.log(pins)
+	}
 }
 
 module.exports = BowlingScorer
+
+// export default BowlingScorer
