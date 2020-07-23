@@ -40,5 +40,22 @@ describe('Bowling scorer', () => {
 			
 			bowlingScorer.roll(5);
 			assert.equal(bowlingScorer.score(), 21)
-	});
+    });
+    
+    // it('should get extra roll after spare in last roll', () => {
+    //     bowlingScorer = new BowlingScorer();
+    //     score = 0;
+    //     for (i = 0; i < 2; i++) {
+    //         bowlingScorer.roll(3);
+    //         if (i > 0 ){
+    //             score+=13;
+    //         }
+
+    //         assert.equal(bowlingScorer.score(), score)
+    //         bowlingScorer.roll(7);
+            
+
+    //         assert.equal(bowlingScorer.score(), score)
+    //     }
+	// 	});
 })
