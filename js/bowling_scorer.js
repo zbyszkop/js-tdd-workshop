@@ -1,11 +1,28 @@
 class BowlingScorer {
-	score = () => 0
 
-	roll(pins) {
-		console.log(pins)
-	}
+    constructor() {
+        this.currentScore = 0;
+        this.throwCount = 0;
+        this.frameScore = 0;
+    }
+    roll(pins) {
+        if (this.throwCount % 2 === 0) {
+            this.frameScore += pins;
+        } else {
+						if(this.frameScore + pins === 10){
+								this.frameScore += pins
+								return
+						}
+
+            this.currentScore += this.frameScore + pins;
+						this.frameScore = 0;
+        }
+        this.throwCount++;
+    }
+
+    score() {
+        return this.currentScore;
+    }
 }
 
 module.exports = BowlingScorer
-
-// export default BowlingScorer
