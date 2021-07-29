@@ -26,4 +26,10 @@ describe('Bowling scorer', () => {
         assert.equal(bowlingScorer.score(), 7 + 8 + 1);
 
     });
+
+    it('should score 0 after 2 rolls if a spare in the frame', () => {
+        bowlingScorer.roll(4)
+        bowlingScorer.roll(6)
+        assert.equal(bowlingScorer.score(), 0);
+    });
 })

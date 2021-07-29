@@ -9,7 +9,9 @@ class BowlingScorer {
 
     roll(pins) {
         if (!this.isFirstRoll) {
-            this.tally += this.lastPins + pins;
+            if (this.lastPins + pins !== 10) {
+                this.tally += this.lastPins + pins;
+            }
         }
         this.isFirstRoll = !this.isFirstRoll;
         this.lastPins = pins;
