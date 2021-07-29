@@ -5,6 +5,8 @@ class BowlingScorer {
         this.lastPins = 0;
         this.tally = 0;
         this.lastSpare = false;
+        this.lastStrike = false
+        this.twoPinsAgo = 0;
     }
 
     roll(pins) {
@@ -17,6 +19,13 @@ class BowlingScorer {
         } else if (this.lastSpare) {
             this.tally += pins + 10;
             this.lastSpare = false;
+        } else if (pins === 10) {
+          // strike
+          this.isFirstRoll = true;
+          this.lastPins = pins;
+          this.lastStrike = true
+          // TODO
+          return
         }
         this.isFirstRoll = !this.isFirstRoll;
         this.lastPins = pins;
