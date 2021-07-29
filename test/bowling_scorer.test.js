@@ -46,4 +46,35 @@ describe('Bowling scorer', () => {
         bowlingScorer.roll(5)
         assert.equal(bowlingScorer.score(), 10 + 5);
     });
+
+    it('should correctly tally one spare frame with non spare frames', () => {
+        bowlingScorer.roll(4)
+        bowlingScorer.roll(6)
+        assert.equal(bowlingScorer.score(), 0);
+        bowlingScorer.roll(5)
+        assert.equal(bowlingScorer.score(), 10 + 5);
+        bowlingScorer.roll(4)
+        assert.equal(bowlingScorer.score(), 15 + 5 + 4);
+        bowlingScorer.roll(2)
+        assert.equal(bowlingScorer.score(), 24);
+        bowlingScorer.roll(3)
+        assert.equal(bowlingScorer.score(), 29);
+    });
+
+    it('should correctly handle strikes', () => {
+        // first frame is strike
+        bowlingScorer.roll(10)
+        assert.equal(bowlingScorer.score(), 0);
+
+        // second frame first roll
+        bowlingScorer.roll(2)
+        assert.equal(bowlingScorer.score(), 0);
+
+        // second frame second roll
+        bowlingScorer.roll(3)
+
+        const secondFrameRawScore = 2 + 3
+        const strikeFrameScore = 10 + 2 + 3
+        assert.equal(bowlingScorer.score(), strikeFrameScore + secondFrameRawScore);
+    });
 })

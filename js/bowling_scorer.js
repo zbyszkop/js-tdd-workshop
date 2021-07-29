@@ -16,6 +16,7 @@ class BowlingScorer {
             }
         } else if (this.lastSpare) {
             this.tally += pins + 10;
+            this.lastSpare = false;
         }
         this.isFirstRoll = !this.isFirstRoll;
         this.lastPins = pins;
@@ -27,4 +28,3 @@ class BowlingScorer {
 }
 
 module.exports = BowlingScorer
-
