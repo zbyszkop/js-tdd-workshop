@@ -42,6 +42,24 @@ describe('Bowling scorer', () => {
         assert.equal(bowlingScorer.score(), 14);
         bowlingScorer.roll(2);
         assert.equal(bowlingScorer.score(), 20);
-        
     })
-})
+
+    it('should correctly tally up 2 consecutive spares', () => {
+        const bowlingScorer = new BowlingScorer();
+        bowlingScorer.roll(3);
+        assert.equal(bowlingScorer.score(), 0);
+        bowlingScorer.roll(7);
+        assert.equal(bowlingScorer.score(), 0);
+        // Second frame
+        bowlingScorer.roll(4);
+        assert.equal(bowlingScorer.score(), 14);
+        bowlingScorer.roll(6);
+        assert.equal(bowlingScorer.score(), 14);
+        // third frame
+        bowlingScorer.roll(2);
+        assert.equal(bowlingScorer.score(), 26);
+        bowlingScorer.roll(6);
+        assert.equal(bowlingScorer.score(), 34);
+
+    })
+    })
