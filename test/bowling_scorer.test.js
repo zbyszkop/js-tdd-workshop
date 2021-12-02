@@ -13,4 +13,12 @@ describe('Bowling scorer', () => {
         bowlingScorer.roll(4);
         assert.equal(bowlingScorer.score(), 7);
     })
+
+    it('should only count score after a complete frame', () => {
+        const bowlingScorer = new BowlingScorer();
+        bowlingScorer.roll(3);
+        bowlingScorer.roll(4);
+        bowlingScorer.roll(5);
+        assert.equal(bowlingScorer.score(), 7);
+    })
 })
